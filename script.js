@@ -5,21 +5,21 @@ let initialData = [
         name: "Camera",
         price: 199.99,
         description: "Looking for a high-quality, easy-to-use, and affordable retro camera? Look no further than the Kodak Instamatic 133!",
-        image: "/resources/sandbox_templates/ecommerce-website/camera.jpg"
+        image: "https://app.bsd.education/resources/sandbox_templates/ecommerce-website/camera.jpg"
     },
     {
         id: 2,
         name: "Mouse",
         price: 25.50,
         description: "Need a lightweight, durable, comfortable, and portable wireless mouse? This Logitech mouse may be the perfect option!",
-        image: "/resources/sandbox_templates/ecommerce-website/mouse.jpg"
+        image: "https://app.bsd.education/resources/sandbox_templates/ecommerce-website/mouse.jpg"
     },
     {
         id: 3,
         name: "Headphones",
         price: 29.99,
         description: "Are you searching for incredible audio quality at an affordable price? Lightweight and comfortable, these wireless Bluetooth headphones are a great option wherever you go.",
-        image: "/resources/sandbox_templates/ecommerce-website/headphone.jpg"
+        image: "https://app.bsd.education/resources/sandbox_templates/ecommerce-website/headphone.jpg"
     }
 ];
 
@@ -252,7 +252,7 @@ function showOrdersInCart() {
         // create the "delete" button to remove an item from the cart
         let deleteImg = document.createElement("img"); 
         deleteImg.className = "trash float-right"; 
-        deleteImg.src = "/resources/sandbox_templates/ecommerce-website-with-firestore/trash.svg"; 
+        deleteImg.src = "https://app.bsd.education/resources/sandbox_templates/ecommerce-website-with-firestore/trash.svg"; 
         deleteImg.onclick = function () { 
             orders.splice(index, 1);
             showOrdersInCart(); 
