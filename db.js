@@ -1,21 +1,39 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// db.js – replaces the BSD database ($BSD.db) using Firebase Firestore
 const firebaseConfig = {
-  apiKey: "AIzaSyBYFJyyI8QGrBtFa6m-cufwgMaYnlclwwk",
-  authDomain: "ecommerce-7c479.firebaseapp.com",
-  projectId: "ecommerce-7c479",
-  storageBucket: "ecommerce-7c479.firebasestorage.app",
-  messagingSenderId: "902531355020",
-  appId: "1:902531355020:web:e046b3cd02bbeb748a06a9",
-  measurementId: "G-RCBPGZN80W"
+    apiKey: "AIzaSyBYFJyyI8QGrBtFa6m-cufwgMaYnlclwwk",
+    authDomain: "ecommerce-7c479.firebaseapp.com",
+    projectId: "ecommerce-7c479",
+    storageBucket: "ecommerce-7c479.firebasestorage.app",
+    messagingSenderId: "902531355020",
+    appId: "1:902531355020:web:e046b3cd02bbeb748a06a9"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+firebase.initializeApp(firebaseConfig);
+const firestore = firebase.firestore();
+
+const $BSD = {
+    db: {
+        open: async function (dbName) {
+            const collection = firestore.collection(dbName);
+            return {
+                set: function (key, value) {
+                    return collection.doc(key).set({ value: value });
+                },
+                get: function (key) {
+                    return collection.doc(key).get().then(function (doc) {
+                        return doc.exists ? doc.data().value : null;
+                    });
+                },
+                listKeys: function (prefix) {
+                    return collection.get().then(function (snapshot) {
+                        let keys = [];
+                        snapshot.forEach(function (doc) {
+                            if (doc.id.startsWith(prefix)) keys.push(doc.id);
+                        });
+                        return keys;
+                    });
+                }
+            };
+        }
+    }
+};
