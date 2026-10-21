@@ -1,0 +1,151 @@
+
+      <!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <base href="https://app.bsd.education">
+          <title>Ecommerce Website</title>
+          
+          
+          <link rel="stylesheet" type="text/css" href="https://app.bsd.education/resources/sandbox_templates/ecommerce-website/css/bootstrap.min.css" /><link rel="stylesheet" href="style.css" />
+          
+          
+          
+        </head>
+        <body>
+          
+
+    <!-- PAGE CONTENT -->
+    <div id="content">
+
+        <!-- NAVIGATION BAR -->
+        <nav class="navbar navbar-expand-md">
+            <div class="container-fluid">
+                <a href="#content" class="navbar-brand">E-commerce</a>
+
+                <!-- HAMBURGER MENU FOR MOBILE -->
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
+                    <img src="https://app.bsd.education/resources/sandbox_templates/ecommerce-website/list.svg">
+                </button>
+
+                <div id="mainNav" class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#content" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#shop" class="nav-link">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="showShoppingCart()">Cart</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- "ABOUT" SECTION -->
+        <section id="about" class="container">
+            <div class="row my-4">
+                <div class="col-md-6">
+                    <h2>About Us</h2>
+                    <h5>Find anything you want</h5>
+                    <p>Welcome to our e-commerce store, your number one source for everything you need! We're dedicated to delivering to you the very best products and customer service.</p>
+                    <a href="#shop" class="btn btn-sm btn-outline-primary px-4">Shop Now</a>
+                </div>
+
+                <div class="col-md-6 my-3">
+                    <img class="img-fluid" src="https://app.bsd.education/resources/sandbox_templates/ecommerce-website/shops.jpg">
+                </div>
+            </div>
+        </section>
+
+        <!-- SHOP SECTION -->
+        <section id="shop" class="py-5">
+            <div class="container">
+                <h2>Find your favorite products</h2>
+                <p>Check out our most popular items</p>
+
+                <!-- PRODUCT ROW -->
+                <div class="row">
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <p class="m-0 py-3 text-center text-white">Copyright © 2021 E-commerce Website. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- OVERLAY -->
+    <div id="overlay" class="" onclick="overlayClicked()"></div>
+
+    <!-- SIDEBAR 1 FOR SHOPPING CART -->
+    <div id="sidebar-1" class="">
+        <div class="sidebar-header">
+            Your Orders
+            <img class="close" onclick="overlayClicked()" src="https://app.bsd.education/resources/sandbox_templates/ecommerce-website/x-circle.svg">
+        </div>
+
+        <!-- CART LIST -->
+        <ul class="sidebar-content my-3">
+           
+        </ul>
+
+        <!-- CART SUMMARY -->
+        <div class="summary">
+            Total: $<span></span>
+            <a class="btn" onclick="placeOrder()">Place Order</a>
+        </div>
+    </div>
+
+    <!-- SIDEBAR 2 FOR CHECKOUT -->
+    <div id="sidebar-2" class="">
+        <div class="sidebar-header">
+            Shipping Address
+            <img class="close" src="https://app.bsd.education/resources/sandbox_templates/ecommerce-website/x-circle.svg" onclick="overlayClicked()">
+        </div>
+        
+        <div class="sidebar-content my-3">
+            <input type="text" class="form-control mb-3" id="buyerName" placeholder="Your name">
+            <input type="email" class="form-control mb-3" id="buyerEmail" placeholder="Your email address">
+            <textarea class="form-control mb-3" id="buyerAddress" rows="5" placeholder="Shipping address"></textarea>
+            
+            <h5>Shipping Methods</h5>
+            <div class="form-check mb-2">
+                <input type="radio" id="freeShipping" class="form-check-input" name="shipping" onclick="freeShipping()" checked>
+                <label for="freeShipping">Standard Shipping (Free)</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" id="sameDayShipping" class="form-check-input" name="shipping" onclick="sameDayShipping()">
+                <label for="sameDayShipping">Same Day Shipping (+$30)</label>
+            </div>
+        </div>
+        
+        <!-- SUMMARY WITH SHIPPING -->
+        <div class="summary">
+            Total: $<span>0</span>
+            <a class="btn float-right" onclick="checkout()">Checkout</a>
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div id="modal" class="card">
+        <img src="https://app.bsd.education/resources/sandbox_templates/ecommerce-website/placeholder.png" class="card-img-top">
+        <div class="card-body">
+            <p class="price">$99.99</p>
+            <h4 class="card-title">product name</h4>
+            <p class="card-text">product description</p>
+            <a class="btn btn-outline-success w-100">Add to cart</a>
+        </div>
+    </div>
+
+    
+    
+
+          
+          <script src="/resources/sandbox_templates/ecommerce-website/js/bootstrap.bundle.min.js"></script><script src="script.js"></script>
+          
+        </body>
+      </html>
+    
